@@ -1,0 +1,45 @@
+// Color Variables
+$bg-color: #f8f8f8;
+$primary-color: #18306c;
+$primary-hover: #f2683c;
+
+$secondary-color: #eaf0ff;
+
+$disabled-color: #b4b4b4;
+
+// Typography Variables
+$font-SemiBoldDisp: 'Sequel Sans Semi Bold Disp', sans-serif;
+$font-RomanDisp: 'Sequel Sans Roman Disp', sans-serif;
+$font-MediumDisp: 'Sequel Sans Medium Disp', sans-serif;
+$font-MediumOblDisp: 'Sequel Sans Medium Obl Disp', sans-serif;
+$base-font-size: 1rem;
+$base-line-height: 1.2;
+$medium: 500;
+$semibold: 600;
+
+// Border Variables
+$border-radius: 16px;
+$border: 1px solid rgba(black, 0.3);
+
+// Z-index
+$zIndex-modal: 1050;
+
+// Breakpoints
+$breakpoint-small: 360px;
+$breakpoint-medium: 620px;
+
+// Transition timing
+$transition-time: 0.3s;
+
+// Mixins for media queries
+@mixin respond-to($breakpoint) {
+	@media (max-width: $breakpoint) {
+		@content;
+	}
+}
+
+@mixin tablet {
+	@media screen and (max-width: 1280px) {
+		@content;
+	}
+}
