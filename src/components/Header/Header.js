@@ -62,6 +62,11 @@ const Header = () => {
 		{
 			title: 'Industries',
 			identifier: 'industries',
+			submenu: [
+				{ title: 'Real estate SEO' },
+				{ title: 'E-commerce SEO' },
+				{ title: 'Web3 seo' },
+			],
 		},
 	];
 
