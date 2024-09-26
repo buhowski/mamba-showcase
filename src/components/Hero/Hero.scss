@@ -3,8 +3,8 @@
 $bg-color: #0a0a0a;
 
 @mixin position-bg {
-	width: 100vw;
-	height: 100vh;
+	width: 100%;
+	height: 100%;
 	position: absolute;
 	left: 0;
 	top: 0;
@@ -14,20 +14,56 @@ $bg-color: #0a0a0a;
 	height: 100vh;
 	position: relative;
 	background-color: #0a0a0a;
-	z-index: 1;
+	z-index: 2;
+	color: white;
+
+	&::before {
+		content: '';
+		display: block;
+		width: 100%;
+		height: 349px;
+		background: linear-gradient(0, rgba(#0a0a0a, 0) 56%, #0a0a0a 100%);
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: -1;
+	}
 }
 
 .hero-line {
 	@include position-bg;
-	z-index: -1;
+	z-index: -3;
 }
 
 .noise-bg {
 	@include position-bg;
-	z-index: 0;
+	z-index: -2;
 	mix-blend-mode: darken;
 	opacity: 0.2;
+	background: url('./images/noise.jpeg') repeat 10%;
+}
+// clip-path: polygon(0% 25%, 25% 0%, 75% 0%, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0% 75%);
 
-	// background-repeat: repeat;
-	// background-size: 10%;
+// border-image-source: linear-gradient(227.66deg, #FF00B4 0%, #2B00F9 100%);
+// background: linear-gradient(249.77deg, #EAEAEA 0.37%, #747474 93.95%);
+
+.hero-partners {
+	display: flex;
+}
+
+.partners-block {
+	position: relative;
+	width: 166px;
+	height: 175px;
+	border-radius: 8px;
+	z-index: 1;
+
+	&__texture {
+		width: 100%;
+		object-fit: cover;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: -1;
+	}
 }

@@ -54,6 +54,9 @@ body {
 .h1 {
 	font-size: 60px;
 	line-height: 112%;
+	font-family: $font-MediumDisp;
+	font-size: clamp(48px, 5vw + 1rem, 96px);
+	line-height: 100%;
 
 	@include tablet {
 		font-size: 45px;
