@@ -1,7 +1,7 @@
 body {
 	font-family: $font-SemiBoldDisp;
-	background-color: white;
-	color: black;
+	background-color: $white;
+	color: $black;
 	font-size: 15px;
 	line-height: 1.2;
 	scrollbar-gutter: stable;
@@ -27,7 +27,7 @@ body {
 	position: relative;
 	text-align: center;
 	padding: 16px 20px;
-	color: black;
+	color: $black;
 	font-size: 12px;
 	text-transform: uppercase;
 	border-radius: 30px;
@@ -62,7 +62,7 @@ body {
 
 	&::after {
 		inset: 1px;
-		background-color: white;
+		background-color: $white;
 		z-index: -1;
 	}
 
@@ -72,16 +72,21 @@ body {
 		}
 	}
 
-	@include tablet {
-		font-size: 18px;
-		padding: 11px 30px 12px;
-		width: 100%;
-	}
+	&--secondary {
+		color: $black;
+		background-color: rgba($black, 0.01);
+		box-sizing: content-box;
+		backdrop-filter: blur(1px);
 
-	&.disabled {
-		background-color: $disabled-color;
-		color: rgba(white, 0.87);
-		pointer-events: none;
+		&::before {
+			background: none;
+			backdrop-filter: none;
+			border: 1px solid $black;
+		}
+
+		&::after {
+			display: none;
+		}
 	}
 }
 
@@ -100,11 +105,13 @@ body {
 }
 
 .h2 {
-	font-size: 34px;
-	line-height: 110%;
+	font-family: $font-RomanDisp;
+	font-size: 80px;
+	line-height: 100%;
+	letter-spacing: -0.8px;
 
 	@include tablet {
-		font-size: 26px;
+		font-size: 32px;
 	}
 }
 

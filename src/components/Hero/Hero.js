@@ -1,3 +1,4 @@
+import { Button } from '../StructureElements';
 import { starIcon } from '../../assets/SvgIcons';
 
 import lineImg from './images/line.png';
@@ -39,9 +40,7 @@ const Hero = () => {
 						Lorem ipsum dolor it amet consectetur id tempus neque.
 					</p>
 
-					<button className='hero-btn main-btn' type='button'>
-						<span>get started</span>
-					</button>
+					<Button buttonClass='hero-btn' title='Get started' />
 				</div>
 
 				<div className='hero-partners'>

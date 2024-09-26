@@ -6,7 +6,7 @@
 	position: relative;
 	background-color: $bg-color;
 	z-index: 2;
-	color: white;
+	color: $white;
 	text-align: center;
 	padding: 20px 0 0;
 
@@ -68,7 +68,7 @@
 	&-desc {
 		width: min(355px, 100%);
 		margin-inline: auto;
-		color: rgba(white, 0.6);
+		color: rgba($white, 0.6);
 		margin-top: 45px;
 		font-family: $font-MediumDisp;
 

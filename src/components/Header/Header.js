@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
-
+import React, { useState, useEffect } from 'react';
 import './Header.scss';
-
 import { headerLogo } from '../../assets/SvgIcons';
 import subItemPho from '../../assets/media/images/submenu-item-photo.jpg';
 
 const MenuItem = ({ title, submenu, activeMenu, setActiveMenu, identifier }) => {
-	const handleMouseEnter = () => setActiveMenu(identifier);
-	const handleMouseLeave = () => setActiveMenu(null);
+	const handleMouseEnter = () => {
+		if (submenu) setActiveMenu(identifier);
+	};
+
+	const handleMouseLeave = () => {
+		if (submenu) setActiveMenu(null);
+	};
 
 	return (
 		<li
@@ -15,7 +18,7 @@ const MenuItem = ({ title, submenu, activeMenu, setActiveMenu, identifier }) => 
 			onMouseLeave={handleMouseLeave}
 			className={activeMenu === identifier ? 'active' : ''}
 		>
-			<a href='/#' className={submenu && 'nav-submenu'}>
+			<a href={`#${title.toLowerCase()}`} className={submenu ? 'nav-submenu' : ''}>
 				{title}
 			</a>
 
@@ -49,14 +52,14 @@ const MenuItem = ({ title, submenu, activeMenu, setActiveMenu, identifier }) => 
 
 const Header = () => {
 	const [activeMenu, setActiveMenu] = useState(null);
+	const [scrolled, setScrolled] = useState(false);
 
 	const menuItems = [
 		{ title: 'Academy' },
 		{ title: 'Collaborate' },
 		{
 			title: 'About',
-			submenu: [{ title: 'About', img: subItemPho }, { title: 'contact' }],
-
+			submenu: [{ title: 'About', img: subItemPho }, { title: 'Contact' }],
 			identifier: 'about',
 		},
 		{
@@ -65,13 +68,27 @@ const Header = () => {
 			submenu: [
 				{ title: 'Real estate SEO' },
 				{ title: 'E-commerce SEO' },
-				{ title: 'Web3 seo' },
+				{ title: 'Web3 SEO' },
 			],
 		},
 	];
 
+	useEffect(() => {
+		const handleScroll = () => {
+			const offset = window.scrollY; // Get the current scroll position
+			setScrolled(offset > 100); // Update scrolled state
+		};
+
+		window.addEventListener('scroll', handleScroll);
+
+		// Clean up event listener on component unmount
+		return () => {
+			window.removeEventListener('scroll', handleScroll);
+		};
+	}, []);
+
 	return (
-		<header className='header'>
+		<header className={`header ${scrolled && !activeMenu ? 'header--scrolled' : ''}`}>
 			<div className='container'>
 				<div className='header-content'>
 					<a href='/'>{headerLogo}</a>

@@ -7,15 +7,21 @@
 	top: 0;
 	left: 0;
 	z-index: 100;
-	color: rgba(white, 0.4);
+	color: rgba($white, 0.4);
 	font-size: 12px;
 	text-transform: uppercase;
+
+	&--scrolled {
+		box-shadow: 0 0 10px rgba($black, 0.93);
+		background-color: rgba(0, 0, 0, 0.93);
+		backdrop-filter: blur(16px);
+	}
 
 	a {
 		transition: 0.3s;
 
 		&:hover {
-			color: white;
+			color: $white;
 		}
 	}
 
@@ -40,7 +46,7 @@
 					}
 
 					.nav-submenu {
-						color: white;
+						color: $white;
 
 						&::after {
 							transform: rotate(45deg) scale(-1);
@@ -96,7 +102,7 @@
 }
 
 .submenu {
-	color: white;
+	color: $white;
 	display: flex;
 	justify-content: flex-end;
 	align-items: flex-start;
