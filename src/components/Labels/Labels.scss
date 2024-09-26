@@ -1,0 +1,70 @@
+@import '../../styles/config';
+
+.labels {
+	background-color: $bg-color;
+	// background-color: green;
+	position: relative;
+	padding: 120px 0;
+
+	// &:before {
+	// 	@include position-bg;
+	// 	content: '';
+	// 	display: block;
+	// 	mix-blend-mode: darken;
+	// 	opacity: 0.2;
+	// 	background: url('../../assets/media/images/noise.jpeg') repeat 10%;
+	// }
+
+	&-content {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 1px;
+		position: relative;
+
+		&::before,
+		&::after {
+			content: '';
+			display: block;
+			@include position-bg;
+
+			opacity: 0.2;
+			// z-index: -1;
+		}
+
+		&::before {
+			background-image: radial-gradient(
+				circle at center,
+				#daff45 0%,
+				#fd712a 25%,
+				#ff00b4 50%,
+				#2b00f9 75%,
+				#000000 100%
+			);
+		}
+
+		&::after {
+			mix-blend-mode: darken;
+			background: url('../../assets/media/images/noise.jpeg') repeat 10%;
+		}
+	}
+
+	&-block {
+		background-color: $bg-color;
+		aspect-ratio: 1 / 1;
+		position: relative;
+		display: grid;
+		place-content: center;
+		z-index: 1;
+		padding: 30px;
+
+		&:before {
+			@include position-bg;
+			content: '';
+			display: block;
+			mix-blend-mode: darken;
+			opacity: 0.2;
+			background: url('../../assets/media/images/noise.jpeg') repeat 10%;
+			z-index: -1;
+		}
+	}
+}

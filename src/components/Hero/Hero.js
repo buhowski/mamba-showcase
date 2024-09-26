@@ -30,40 +30,42 @@ const Hero = () => {
 
 			<span className='noise-bg' alt='noise'></span>
 
-			<div className='hero-content'>
-				<h1 className='hero-title h1'>Your outcome — based SEO partner.</h1>
+			<div className='container'>
+				<div className='hero-content'>
+					<h1 className='hero-title h1'>Your outcome — based SEO partner.</h1>
 
-				<p className='hero-desc'>
-					Clear KPIs set every quarter that align with your targets. Lorem ipsum dolor
-					sit amet consectetur id tempus neque.
-				</p>
+					<p className='hero-desc'>
+						<span>Clear KPIs set every quarter that align with</span> your targets.
+						Lorem ipsum dolor it amet consectetur id tempus neque.
+					</p>
 
-				<button className='hero-btn main-btn' type='button'>
-					get started
-				</button>
-			</div>
+					<button className='hero-btn main-btn' type='button'>
+						<span>get started</span>
+					</button>
+				</div>
 
-			<div className='hero-partners'>
-				{partnersData.map(({ shapeBg, title, score }, index) => (
-					<a href='/#' className='partners-block' key={index}>
-						{/* Using deferent design layers */}
-						{/* <img src={textureBg} alt={title} className='partners-block__texture' /> */}
-						{/* <span className='partners-block__shape'>{shapeBg}</span> */}
-						{/* <img src={icon} alt={title} className='partners-block__icon' /> */}
+				<div className='hero-partners'>
+					{partnersData.map(({ shapeBg, title, score }, index) => (
+						<a href='/#' className='partners-block' key={index}>
+							{/* Using deferent design layers */}
+							{/* <img src={textureBg} alt={title} className='partners-block__texture' /> */}
+							{/* <span className='partners-block__shape'>{shapeBg}</span> */}
+							{/* <img src={icon} alt={title} className='partners-block__icon' /> */}
 
-						<img src={shapeBg} alt={title} className='partners-block__shape' />
+							<img src={shapeBg} alt={title} className='partners-block__shape' />
 
-						<span className='partners-block__title'>
-							{title}
+							<span className='partners-block__title'>
+								{title}
 
-							{score && (
-								<span>
-									{starIcon} {score}
-								</span>
-							)}
-						</span>
-					</a>
-				))}
+								{score && (
+									<span>
+										{starIcon} {score}
+									</span>
+								)}
+							</span>
+						</a>
+					))}
+				</div>
 			</div>
 		</section>
 	);

@@ -1,37 +1,49 @@
-// @import '../../styles/config';
-
-$bg-color: #0a0a0a;
-
-@mixin position-bg {
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	left: 0;
-	top: 0;
-}
+@import '../../styles/config';
 
 .hero {
 	height: 100vh;
+	min-height: 680px;
 	position: relative;
-	background-color: #0a0a0a;
+	background-color: $bg-color;
 	z-index: 2;
 	color: white;
+	text-align: center;
+	padding: 20px 0 0;
 
-	&::before {
+	.container {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		height: 100%;
+	}
+
+	&::before,
+	&:after {
 		content: '';
 		display: block;
 		width: 100%;
 		height: 349px;
-		background: linear-gradient(0, rgba(#0a0a0a, 0) 56%, #0a0a0a 100%);
+
 		position: absolute;
-		top: 0;
 		left: 0;
 		z-index: -1;
+	}
+
+	&::before {
+		top: 0;
+		background: linear-gradient(0, rgba($bg-color, 0) 56%, $bg-color 100%);
+	}
+
+	&:after {
+		bottom: 0;
+		background: linear-gradient(180deg, rgba($bg-color, 0) 56%, $bg-color 100%);
 	}
 }
 
 .hero-line {
 	@include position-bg;
+	opacity: 0.65;
 	z-index: -3;
 }
 
@@ -40,15 +52,45 @@ $bg-color: #0a0a0a;
 	z-index: -2;
 	mix-blend-mode: darken;
 	opacity: 0.2;
-	background: url('./images/noise.jpeg') repeat 10%;
+	background: url('../../assets/media/images/noise.jpeg') repeat 10%;
 }
-// clip-path: polygon(0% 25%, 25% 0%, 75% 0%, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0% 75%);
 
-// border-image-source: linear-gradient(227.66deg, #FF00B4 0%, #2B00F9 100%);
-// background: linear-gradient(249.77deg, #EAEAEA 0.37%, #747474 93.95%);
+.hero {
+	&-content {
+		width: min(850px, 100%);
+		margin-inline: auto;
+
+		@include tablet {
+			width: min(450px, 100%);
+		}
+	}
+
+	&-desc {
+		width: min(355px, 100%);
+		margin-inline: auto;
+		color: rgba(white, 0.6);
+		margin-top: 45px;
+		font-family: $font-MediumDisp;
+
+		span {
+			display: block;
+		}
+	}
+
+	&-btn {
+		margin-top: 40px;
+	}
+}
 
 .hero-partners {
 	display: flex;
+	gap: 20px;
+	text-transform: uppercase;
+	position: absolute;
+	right: 20px;
+	bottom: 20px;
+	font-size: 12px;
+	line-height: 110%;
 }
 
 .partners-block {
@@ -57,13 +99,36 @@ $bg-color: #0a0a0a;
 	height: 175px;
 	border-radius: 8px;
 	z-index: 1;
+	display: grid;
+	place-content: end center;
+	padding-bottom: 32px;
+	transition: 0.3s;
 
-	&__texture {
+	&:hover {
+		opacity: 0.8;
+	}
+
+	&__shape {
 		width: 100%;
 		object-fit: cover;
 		position: absolute;
 		top: 0;
 		left: 0;
 		z-index: -1;
+	}
+
+	&__title {
+		max-width: 112px;
+		display: inline-block;
+
+		span {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			svg {
+				margin-right: 3px;
+			}
+		}
 	}
 }

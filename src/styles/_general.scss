@@ -3,6 +3,7 @@ body {
 	background-color: white;
 	color: black;
 	font-size: 15px;
+	line-height: 1.2;
 	scrollbar-gutter: stable;
 }
 
@@ -23,24 +24,58 @@ body {
 
 // Buttons Style
 .main-btn {
+	position: relative;
 	text-align: center;
-	border-radius: 100px;
-	padding: 16px 50px 17px;
+	padding: 16px 20px;
+	color: black;
+	font-size: 12px;
+	text-transform: uppercase;
+	border-radius: 30px;
+	overflow: hidden;
+	z-index: 1;
+	transition: 0.3s;
 
-	border: 1px solid $primary-color;
+	&:hover {
+		opacity: 0.8;
 
-	font-size: 20px;
-	background-color: $primary-color;
+		span {
+			&::after {
+				transform: rotate(-45deg) translate(3px, 3px);
+			}
+		}
+	}
+
+	&::before,
+	&::after {
+		content: '';
+		display: block;
+		border-radius: 30px;
+		position: absolute;
+		backdrop-filter: blur(1px);
+	}
+
+	&::before {
+		inset: 0;
+		background: linear-gradient(95.35deg, #ffffff 0%, #eaeaea 100%);
+		z-index: -2;
+	}
+
+	&::after {
+		inset: 1px;
+		background-color: white;
+		z-index: -1;
+	}
+
+	span {
+		&::after {
+			@include arrowRight;
+		}
+	}
 
 	@include tablet {
 		font-size: 18px;
 		padding: 11px 30px 12px;
 		width: 100%;
-	}
-
-	&:hover {
-		background-color: white;
-		color: $primary-color;
 	}
 
 	&.disabled {
@@ -55,11 +90,12 @@ body {
 	font-size: 60px;
 	line-height: 112%;
 	font-family: $font-MediumDisp;
-	font-size: clamp(48px, 5vw + 1rem, 96px);
+	font-size: 96px;
 	line-height: 100%;
+	letter-spacing: -0.96px;
 
 	@include tablet {
-		font-size: 45px;
+		font-size: 48px;
 	}
 }
 

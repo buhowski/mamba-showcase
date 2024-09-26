@@ -59,9 +59,12 @@
 	}
 
 	&-link {
+		&:hover::after {
+			transform: rotate(-45deg) translate(3px, 3px);
+		}
+
 		&::after {
-			@include arrow;
-			transform: rotate(-45deg);
+			@include arrowRight;
 		}
 	}
 }
