@@ -28,7 +28,7 @@ const Subscribe = () => {
 	};
 
 	return (
-		<div className='subscribe-container'>
+		<div className='subscribe-container' id='collaborate'>
 			<form className='subscribe-form' onSubmit={handleSubmit}>
 				<input
 					type='email'
