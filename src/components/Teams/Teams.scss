@@ -31,6 +31,10 @@
 	&--width {
 		.team__desc {
 			max-width: 298px;
+
+			@include mobile {
+				max-width: 100%;
+			}
 		}
 	}
 
@@ -60,5 +64,9 @@
 		-webkit-box-orient: vertical;
 		-webkit-line-clamp: 5;
 		overflow: hidden;
+
+		@include mobile {
+			max-width: 100%;
+		}
 	}
 }
