@@ -25,7 +25,11 @@ const useMediaQuery = (query, dimension) => {
 
 // Media Query Responsive layout
 const useTabletQuery = () => {
-	return useMediaQuery('1280', 'width');
+	return useMediaQuery('1024', 'width');
 };
 
-export { useTabletQuery };
+const useMobileQuery = () => {
+	return useMediaQuery('768', 'width');
+};
+
+export { useTabletQuery, useMobileQuery };

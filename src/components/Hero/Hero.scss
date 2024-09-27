@@ -2,13 +2,17 @@
 
 .hero {
 	height: 100vh;
-	min-height: 680px;
+	min-height: 790px;
 	position: relative;
 	background-color: $bg-color;
 	z-index: 2;
 	color: $white;
 	text-align: center;
 	padding: 20px 0 0;
+
+	@include mobile {
+		padding-top: 70px;
+	}
 
 	.container {
 		position: relative;
@@ -83,7 +87,10 @@
 }
 
 .hero-partners {
-	display: flex;
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, 166px);
+	justify-content: end;
 	gap: 20px;
 	text-transform: uppercase;
 	position: absolute;
@@ -91,6 +98,12 @@
 	bottom: 20px;
 	font-size: 12px;
 	line-height: 110%;
+
+	@include mobile {
+		position: static;
+		margin-top: 45px;
+		justify-content: center;
+	}
 }
 
 .partners-block {

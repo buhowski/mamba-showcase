@@ -1,3 +1,46 @@
+export const CloseMenuIcon = (
+	<svg
+		width='8'
+		height='9'
+		viewBox='0 0 8 9'
+		fill='none'
+		xmlns='http://www.w3.org/2000/svg'
+	>
+		<rect
+			x='0.818359'
+			y='0.61084'
+			width='10'
+			height='1'
+			rx='0.5'
+			transform='rotate(45 0.818359 0.61084)'
+			fill='white'
+		/>
+		<rect
+			x='0.111328'
+			y='7.68213'
+			width='10'
+			height='1'
+			rx='0.5'
+			transform='rotate(-45 0.111328 7.68213)'
+			fill='white'
+		/>
+	</svg>
+);
+
+export const MobileMenuIcon = (
+	<svg
+		width='10'
+		height='9'
+		viewBox='0 0 10 9'
+		fill='none'
+		xmlns='http://www.w3.org/2000/svg'
+	>
+		<rect y='4' width='10' height='1' rx='0.5' fill='white' />
+		<rect width='10' height='1' rx='0.5' fill='white' />
+		<rect y='8' width='10' height='1' rx='0.5' fill='white' />
+	</svg>
+);
+
 export const headerLogo = (
 	<svg
 		width='111'
