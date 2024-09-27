@@ -43,6 +43,12 @@ $transition-time: 0.3s;
 	}
 }
 
+@mixin mobile {
+	@media screen and (max-width: 768px) {
+		@content;
+	}
+}
+
 // positions
 @mixin position-bg {
 	width: 100%;

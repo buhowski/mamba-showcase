@@ -40,8 +40,10 @@ const Labels = () => {
 				<div className='labels-content'>
 					{labelsData.map(({ logo }, index) => (
 						<div
-							className={`labels-block ${activeIndex === index ? 'active' : ''}`}
 							key={index}
+							className={`labels-block ${
+								activeIndex !== null && activeIndex !== index ? 'hidden' : ''
+							}`}
 							onMouseEnter={() => handleMouseEnter(index)}
 							onMouseLeave={handleMouseLeave}
 						>

@@ -12,13 +12,9 @@ body {
 	width: min(1480px, 100%);
 	margin-inline: auto;
 	padding: 0 20px;
-}
 
-.wrapper {
-	padding: 0 40px;
-
-	@include tablet {
-		padding: 0;
+	@include mobile {
+		padding: 0 10px;
 	}
 }
 
