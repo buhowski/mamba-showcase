@@ -26,9 +26,11 @@ const BackToTop = () => {
 	}, []);
 
 	return (
-		<button className={`back-to-top ${visible ? 'visible' : ''}`} onClick={scrollToTop}>
-			Back to top
-		</button>
+		<div className={`scroll-top ${visible ? 'visible' : ''}`}>
+			<div className='container'>
+				<button onClick={scrollToTop}>Back to top</button>
+			</div>
+		</div>
 	);
 };
 

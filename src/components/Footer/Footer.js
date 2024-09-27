@@ -1,6 +1,8 @@
 import React from 'react';
 import Subscribe from './Subscribe';
 
+import footerLogo from '../../assets/media/images/footer-logo.png';
+
 import './Footer.scss';
 
 const footerNavData = [
@@ -70,6 +72,19 @@ const Footer = () => {
 							</div>
 						))}
 					</div>
+				</div>
+
+				<div className='footer-logo'>
+					<img src={footerLogo} alt='logo' />
+				</div>
+
+				<div className='footer-copy'>
+					<p>
+						<a href='#0'>Privacy policy</a>
+						<a href='#0'>Terms of conditions</a>
+					</p>
+
+					<p>&copy;2024 Mamba Agency. All rights reserved.</p>
 				</div>
 			</div>
 		</footer>

@@ -45,16 +45,28 @@ section {
 	background-color: $white;
 }
 
-.back-to-top {
+.scroll-top {
 	position: fixed;
-	bottom: 100px;
-	right: 25px;
+	bottom: 0;
+	left: 0;
 	z-index: 9999;
+	width: 100%;
+	text-align: right;
 	color: $white;
 	mix-blend-mode: difference;
+	text-transform: uppercase;
+	font-size: 12px;
 	opacity: 0;
 	visibility: hidden;
 	transition: 0.6s;
+
+	button {
+		margin-bottom: 100px;
+
+		&:hover {
+			opacity: 0.7;
+		}
+	}
 
 	&.visible {
 		opacity: 1;
