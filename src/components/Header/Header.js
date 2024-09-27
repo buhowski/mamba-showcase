@@ -7,11 +7,11 @@ import subItemPho from '../../assets/media/images/submenu-item-photo.jpg';
 
 const MenuItem = ({ title, submenu, activeMenu, setActiveMenu, identifier }) => {
 	const handleMouseEnter = () => {
-		if (submenu) setActiveMenu(identifier);
+		setActiveMenu(identifier);
 	};
 
 	const handleMouseLeave = () => {
-		if (submenu) setActiveMenu(null);
+		setActiveMenu(null);
 	};
 
 	return (
@@ -109,9 +109,9 @@ const Header = () => {
 
 	return (
 		<header
-			className={`header ${scrolled && !activeMenu ? 'header--scrolled' : ''} ${
-				isMenuOpen ? 'menuOpen' : ''
-			}`}
+			className={`header ${scrolled ? 'header--scrolled' : ''} ${
+				activeMenu ? 'hidden-items' : ''
+			} ${isMenuOpen ? 'menuOpen' : ''}`}
 		>
 			<div className='container'>
 				<div className='header-content'>
