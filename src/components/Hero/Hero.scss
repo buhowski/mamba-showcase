@@ -12,6 +12,8 @@
 
 	@include mobile {
 		padding-top: 70px;
+		height: auto;
+		min-height: 100vh;
 	}
 
 	.container {
@@ -87,17 +89,16 @@
 }
 
 .hero-partners {
-	width: 100%;
-	display: grid;
-	grid-template-columns: repeat(auto-fit, 166px);
-	justify-content: end;
+	display: flex;
 	gap: 20px;
+	flex-wrap: wrap;
 	text-transform: uppercase;
 	position: absolute;
 	right: 20px;
 	bottom: 20px;
 	font-size: 12px;
 	line-height: 110%;
+	justify-content: flex-end;
 
 	@include mobile {
 		position: static;

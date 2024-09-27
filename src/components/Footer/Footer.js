@@ -47,12 +47,19 @@ const footerNavData = [
 ];
 
 const Footer = () => {
+	const scrollToTop = () => {
+		window.scrollTo({
+			top: 0,
+			behavior: 'smooth',
+		});
+	};
+
 	return (
 		<footer className='footer'>
 			<div className='container'>
 				<div className='footer-top'>
 					<div className='footer-subscribe'>
-						<h3 className='h3'>Sign up for email updates</h3>
+						<h3 className='footer-subscribe__title h3'>Sign up for email updates</h3>
 
 						<Subscribe />
 					</div>
@@ -71,6 +78,10 @@ const Footer = () => {
 								</ul>
 							</div>
 						))}
+
+						<button className='scroll-top' onClick={scrollToTop}>
+							Back to top
+						</button>
 					</div>
 				</div>
 
@@ -84,7 +95,9 @@ const Footer = () => {
 						<a href='#0'>Terms of conditions</a>
 					</p>
 
-					<p>&copy;2024 Mamba Agency. All rights reserved.</p>
+					<p className='footer-copy__text'>
+						&copy;2024 Mamba Agency. All rights reserved.
+					</p>
 				</div>
 			</div>
 		</footer>

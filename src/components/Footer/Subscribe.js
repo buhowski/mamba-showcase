@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 const Subscribe = () => {
 	const [email, setEmail] = useState('');
 	const [error, setError] = useState('');
-	const [seccess, setSeccess] = useState('');
+	const [success, setSuccess] = useState('');
 
 	const handleInputChange = (e) => {
 		setEmail(e.target.value);
@@ -18,12 +18,12 @@ const Subscribe = () => {
 		e.preventDefault();
 
 		if (validateEmail(email)) {
-			console.log('Subscribed email:', email);
 			setEmail('');
 			setError('');
-			setSeccess(`Subscribed email: ${email}`);
+			setSuccess(`Test Subscribed email: ${email}`);
 		} else {
-			setError('Please enter a valid email address');
+			setSuccess('');
+			setError('Test Error: Please enter a valid email address');
 		}
 	};
 
@@ -41,9 +41,10 @@ const Subscribe = () => {
 				<button type='submit' className='subscribe-btn'>
 					Subscribe
 				</button>
+
+				{error && <p className='message-error'>{error}</p>}
+				{success && <p className='message-success'>{success}</p>}
 			</form>
-			{error && <p className='message-error'>{error}</p>}
-			{seccess && <p className='message--success'>{seccess}</p>}
 		</div>
 	);
 };
