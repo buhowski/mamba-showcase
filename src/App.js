@@ -6,6 +6,7 @@ import Hero from './components/Hero/Hero';
 import Labels from './components/Labels/Labels';
 import Teams from './components/Teams/Teams';
 import Footer from './components/Footer/Footer';
+import Tabs from './components/Tabs/Tabs';
 
 // import BackToTop from './components/BackToTop';
 
@@ -17,11 +18,12 @@ const App = () => {
 			<Header />
 			<Hero />
 			<Labels />
+
+			<Tabs />
+
 			<Teams />
-			{/* <Form /> */}
-
 			<Footer />
-
+			{/* <Form /> */}
 			{/* <BackToTop /> */}
 		</main>
 	);
