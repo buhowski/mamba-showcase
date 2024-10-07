@@ -20,7 +20,7 @@ const tabData = [
 		videoSrc: 'https://www.w3schools.com/html/mov_bbb.mp4',
 		title: 'Lorem, ipsum dolor. 2',
 		description: [
-			'Lorem ipsum dolor sit amet consectetur. Quis scelerisque elementum et porttitor.',
+			'Lorem ipsum dolor sit amet consectetur. Quis scelerisque elementum et porttitor. Ut duis iaculis facilisi cursus. Pellentesque hendrerit dictum lectus enim lorem.',
 		],
 	},
 	{
@@ -28,7 +28,9 @@ const tabData = [
 		videoSrc: 'https://www.w3schools.com/html/mov_bbb.mp4',
 		title: 'Lorem, 3',
 		description: [
-			'Lorem ipsum dolor sit amet consectetur. Quis scelerisque elementum et porttitor.',
+			'Lorem ipsum dolor sit amet consectetur. Quis scelerisque elementum et porttitor. Ut duis iaculis facilisi cursus. Pellentesque hendrerit dictum lectus enim lorem.',
+
+			'Lorem ipsum dolor sit amet consectetur. Quis scelerisque elementum et porttitor. Ut duis iaculis facilisi cursus.',
 		],
 	},
 ];
@@ -37,14 +39,15 @@ const Tabs = () => {
 	const [activeTab, setActiveTab] = useState(1);
 	const [isPlaying, setIsPlaying] = useState(false);
 	const tabButtonsRef = useRef(null);
-	const contentHeight = useRef(null);
+	const contentHeight = useRef();
 	const videoRefs = useRef([]);
 
 	useEffect(() => {
 		const heightEl = tabButtonsRef.current.clientHeight;
 		document.documentElement.style.setProperty('--tab-buttons-height', `${heightEl}px`);
 
-		const sectionHeight = heightEl + contentHeight.current.clientHeight + 50;
+		const sectionHeight = heightEl + contentHeight.current.clientHeight + 40;
+
 		document.documentElement.style.setProperty(
 			'--section-height',
 			`${sectionHeight}px`
@@ -56,8 +59,6 @@ const Tabs = () => {
 		videoRefs.current.forEach((video) => {
 			if (video && !video.paused) {
 				video.pause();
-				// Uncomment to reset video time when switching tabs
-				// video.currentTime = 0;
 			}
 		});
 		setIsPlaying(false);
@@ -112,7 +113,7 @@ const Tabs = () => {
 					<div className='tabs-right'>
 						<p>
 							Our proudest metric is the longevity of our collabs. We aim to be your
-							partner for the long haul and we’re willing to make some pretty unique
+							partner for the long haul and were willing to make some pretty unique
 							commitments to back it up.
 						</p>
 					</div>
@@ -133,7 +134,7 @@ const Tabs = () => {
 						</div>
 					</div>
 
-					{tabData.map(renderTabContent)}
+					<div className='tabs-wrapper'>{tabData.map(renderTabContent)}</div>
 				</div>
 			</section>
 		</div>
@@ -160,8 +161,12 @@ const VideoPlayer = React.forwardRef(({ videoSrc, isPlaying, setIsPlaying }, ref
 	const updateProgress = () => {
 		const video = videoRef.current;
 		const progressPercent = (video.currentTime / video.duration) * 100;
+
 		setProgress(progressPercent);
-		if (video.currentTime === video.duration) setIsPlaying(false);
+
+		if (video.currentTime === video.duration) {
+			setIsPlaying(false);
+		}
 	};
 
 	const handleMouseMove = (e) => {

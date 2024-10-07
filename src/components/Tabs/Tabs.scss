@@ -46,19 +46,25 @@
 	min-height: var(--section-height);
 }
 
+.tabs-wrapper {
+	position: relative;
+}
+
 .tab-content {
 	width: 100%;
 	position: absolute;
+	top: 0;
 	left: 0;
-	transition: opacity 0.6s, visibility 0.6s;
+	transition: 0.6s;
 	opacity: 0;
-	font-family: $font-MediumDisp;
 	visibility: hidden;
+	font-family: $font-MediumDisp;
 }
 
 .tab-content.active {
 	opacity: 1;
 	visibility: visible;
+	z-index: 10;
 }
 
 .tab-info {
@@ -70,6 +76,7 @@
 	padding: 20px 14px 20px 20px;
 	position: relative;
 	z-index: 1;
+	transition: 0.6s;
 
 	&::before {
 		content: '';
@@ -144,7 +151,7 @@
 	&.active {
 		color: #fff;
 		background-color: #000;
-		border-color: transparent;
+		border-color: #000000;
 	}
 }
 
@@ -211,14 +218,14 @@
 	height: 170px;
 	bottom: 0;
 	left: 0;
-	z-index: 1;
+	z-index: 2;
 	background: linear-gradient(
 		180deg,
 		rgba(218, 218, 69, 0) 35%,
 		rgba(218, 255, 69, 1) 100%
 	);
-
-	transition: 0.5s linear;
+	width: 0;
+	transition: width 0.5s linear;
 }
 
 .play-button {
