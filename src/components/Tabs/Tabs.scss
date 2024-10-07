@@ -41,6 +41,10 @@
 	}
 }
 
+.tabs-action {
+	margin-bottom: 10px;
+}
+
 .tabs-container {
 	position: relative;
 	min-height: var(--section-height);
@@ -59,6 +63,12 @@
 	opacity: 0;
 	visibility: hidden;
 	font-family: $font-MediumDisp;
+
+	.tabs-left {
+		@include tablet {
+			order: 2;
+		}
+	}
 }
 
 .tab-content.active {
@@ -72,7 +82,6 @@
 	overflow: hidden;
 	background-color: #000000;
 	color: rgba(#ffffff, 0.6);
-	margin-top: 10px;
 	padding: 20px 14px 20px 20px;
 	position: relative;
 	z-index: 1;
@@ -204,6 +213,8 @@
 	@include tablet {
 		height: auto;
 		margin-top: 0;
+
+		order: 1;
 	}
 
 	video {
