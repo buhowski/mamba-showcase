@@ -9,22 +9,27 @@ const tabData = [
 		id: 1,
 		videoSrc: 'https://www.w3schools.com/html/mov_bbb.mp4',
 		title: 'Mamba is the best thing since sliced bread',
-		description:
-			'Lorem ipsum dolor sit amet consectetur. Quis scelerisque elementum et porttitor.',
+		description: [
+			'Lorem ipsum dolor sit amet consectetur. Quis scelerisque elementum et porttitor. Ut duis iaculis facilisi cursus. Pellentesque hendrerit dictum lectus enim lorem.',
+
+			'Lorem ipsum dolor sit amet consectetur. Quis scelerisque elementum et porttitor. Ut duis iaculis facilisi cursus.',
+		],
 	},
 	{
 		id: 2,
 		videoSrc: 'https://www.w3schools.com/html/mov_bbb.mp4',
 		title: 'Lorem, ipsum dolor. 2',
-		description:
+		description: [
 			'Lorem ipsum dolor sit amet consectetur. Quis scelerisque elementum et porttitor.',
+		],
 	},
 	{
 		id: 3,
 		videoSrc: 'https://www.w3schools.com/html/mov_bbb.mp4',
 		title: 'Lorem, 3',
-		description:
+		description: [
 			'Lorem ipsum dolor sit amet consectetur. Quis scelerisque elementum et porttitor.',
+		],
 	},
 ];
 
@@ -39,7 +44,7 @@ const Tabs = () => {
 		const heightEl = tabButtonsRef.current.clientHeight;
 		document.documentElement.style.setProperty('--tab-buttons-height', `${heightEl}px`);
 
-		const sectionHeight = heightEl + contentHeight.current.clientHeight + 10;
+		const sectionHeight = heightEl + contentHeight.current.clientHeight + 50;
 		document.documentElement.style.setProperty(
 			'--section-height',
 			`${sectionHeight}px`
@@ -77,7 +82,9 @@ const Tabs = () => {
 							<p>Lorem ipsum dolor sit amet consectetur.</p>
 						</div>
 						<div className='tab-info_bottom-right'>
-							<p>{tab.description}</p>
+							{tab.description.map((item, index) => (
+								<p key={index}>{item}</p>
+							))}
 							<button className='header-link'>Read more</button>
 						</div>
 					</div>
@@ -193,8 +200,11 @@ const VideoPlayer = React.forwardRef(({ videoSrc, isPlaying, setIsPlaying }, ref
 			/>
 
 			<div className='progress-bar' style={{ width: `${progress}%` }}></div>
+
 			<div className={`play-button ${isPlaying ? 'pause' : ''}`} ref={playButtonRef}>
-				<span>{isPlaying ? 'Pause' : 'Play'}</span>
+				<span className='border'></span>
+
+				<span className='text'>{isPlaying ? 'Pause' : 'Play'}</span>
 			</div>
 		</div>
 	);

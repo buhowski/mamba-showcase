@@ -67,7 +67,7 @@
 	background-color: #000000;
 	color: rgba(#ffffff, 0.6);
 	margin-top: 10px;
-	padding: 20px 14px;
+	padding: 20px 14px 20px 20px;
 	position: relative;
 	z-index: 1;
 
@@ -121,6 +121,7 @@
 .tab-buttons {
 	display: flex;
 	gap: 10px;
+	flex: 100%;
 }
 
 .tab-btn {
@@ -134,6 +135,11 @@
 	color: #000000;
 	font-size: 33px;
 	font-family: $font-RomanDisp;
+	transition: 0.4s;
+
+	&:hover {
+		border-color: #000000;
+	}
 
 	&.active {
 		color: #fff;
@@ -146,9 +152,13 @@
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	gap: 16px;
-	margin-top: 20px;
-	padding-bottom: 20px;
+	margin-top: 15px;
+	padding-bottom: 16px;
 	border-bottom: 1px solid rgba(#ffffff, 0.2);
+
+	@include mobile {
+		grid-template-columns: 1fr;
+	}
 }
 
 .tab-info_bottom-left {
@@ -157,7 +167,7 @@
 	.number {
 		font-size: 33px;
 		color: #ffffff;
-		margin-bottom: 20px;
+		margin-bottom: 10px;
 	}
 }
 
@@ -217,24 +227,54 @@
 	width: 120px;
 	height: 120px;
 	border-radius: 50%;
-	border: 1px solid #ffffff;
 	font-size: 12px;
 	line-height: 1;
-	mix-blend-mode: difference;
-	color: #ffffff;
 	top: 52px;
 	right: 52px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	text-transform: uppercase;
+	font-family: $font-SemiBoldDisp;
+	z-index: auto;
+
+	> .border {
+		border-radius: 50%;
+		position: absolute;
+		inset: 0;
+		border: 1px solid #ffffff;
+		mix-blend-mode: difference;
+		z-index: 10;
+	}
+
+	.text {
+		display: flex;
+		align-items: center;
+		padding-left: 14px;
+		position: relative;
+		color: #ffffff;
+		z-index: 10;
+
+		&::before {
+			content: '';
+			display: block;
+			width: 0;
+			height: 0;
+			border-left: 4.5px solid transparent;
+			border-right: 4.5px solid transparent;
+			border-bottom: 7px solid #fff;
+			transform: rotate(90deg);
+			position: absolute;
+			left: 0;
+		}
+	}
 
 	&.pause {
 		@include tablet {
 			display: none;
 		}
 
-		span {
+		.text {
 			&::after {
 				content: '';
 				display: block;
@@ -254,26 +294,6 @@
 				height: 9px;
 				background-color: #fff;
 			}
-		}
-	}
-
-	span {
-		display: flex;
-		align-items: center;
-		padding-left: 14px;
-		position: relative;
-
-		&::before {
-			content: '';
-			display: block;
-			width: 0;
-			height: 0;
-			border-left: 4.5px solid transparent;
-			border-right: 4.5px solid transparent;
-			border-bottom: 7px solid #fff;
-			transform: rotate(90deg);
-			position: absolute;
-			left: 0;
 		}
 	}
 }
